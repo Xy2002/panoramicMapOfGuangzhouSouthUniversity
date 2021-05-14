@@ -20,11 +20,28 @@
             width: 100%;
             height: 100%;
         }
+        a:link { text-decoration: underline;color: white}
+        a:active { text-decoration:none}
+        a:hover { text-decoration:underline;color: white}
+        a:visited { text-decoration: underline;color: white}
+        a{text-decoration: underline;color:white}
     </style>
 </head>
 <body>
 
 <div id="photosphere"></div>
+<div id="panel-content">
+    <h1>Creator Info<small>创作者信息</small></h1>
+    <h2>技术支持：Marshall</h2>
+    <h2>素材提供：Ryan</h2>
+    <h2>Marshall's Blog：<a href="https://naiquoy.com">Click here</a></h2>
+    <h2>Marshall's Github：<a href="https://github.com/Xy2002">Click here</a></h2>
+    <h1>License<small>许可证</small></h1>
+    <h2>This product is licensed under the Creative Commons (CC) license, BY+NC+SA.</h2>
+    <h3>该产品遵从Creative Commons（CC）许可证，BY+NC+SA。</h3>
+    <h2>Subject to the following conditions: Attribution, non-commercial use, sharing in the same manner, no additional restrictions</h2>
+    <h3>惟须遵守下列条件：署名，非商业性使用，相同方式共享，没有附加限制</h3>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js"></script>
@@ -35,6 +52,8 @@
 <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
 
 <script>
+    var buttonId = 'panel-button'
+    var panelId = 'custom-panel';
     var panos = [
         {
             desc    : '广州南方学院铜像处',
@@ -93,18 +112,20 @@
         navbar    : [
             'autorotate', 'zoom',
             {
-                id       : 'custom',
-                title    : 'Change image',
-                className: 'custom-button',
-                content  : '🔄',
-                onClick  : (function () {
-                    var i = 0;
-
-                    return function () {
-                        i = 1 - i;
-                        loadPanorama(panos[i]);
-                    };
-                }()),
+                id:buttonId,
+                title:'creatorInfo',
+                content:'ℹ️',
+                onClick:function () {
+                    if(viewer.panel.isVisible(panelId)){
+                        viewer.panel.hide();
+                    }else {
+                        viewer.panel.show({
+                            id: panelId,
+                            width: '60%',
+                            content: document.querySelector('#panel-content').innerHTML,
+                        });
+                    }
+                }
             },
             'caption', 'gyroscope', 'fullscreen',
         ],
@@ -120,6 +141,17 @@
         if(marker.id === "xiti"){
             markersPlugin.clearMarkers();
             loadPanorama(panos[1])
+        }
+    });
+    viewer.on('open-panel', function(e, id) {
+        if (id === panelId) {
+            viewer.navbar.getButton(buttonId).toggleActive(true);
+        }
+    });
+
+    viewer.on('close-panel', function(e, id) {
+        if (id === panelId) {
+            viewer.navbar.getButton(buttonId).toggleActive(false);
         }
     });
     // wash out the base image
