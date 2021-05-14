@@ -6,7 +6,7 @@
     <title>PhotoSphereViewer - equirectangular tiles demo</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.3.0-rc.1/dist/photo-sphere-viewer.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css">
     <style>
         html, body {
             width: 100%;
@@ -59,7 +59,7 @@
             desc    : '广州南方学院铜像处',
             minFov  : 30,
             base    : `./assets/img/lowQualityImg/DJI_0131_low.JPG`,
-            position: { longitude: 0, latitude: 0, zoom: 50, },
+            position: { longitude: 0.8648759940158011, latitude: -0.05638018625704766, zoom: 50, },
             config  : {
                 width  : 8192,
                 cols   : 32,
@@ -84,6 +84,21 @@
                     return `./assets/img/xiti/tile_${('000' + num).slice(-4)}.jpg`;
                 },
             },
+        },
+        {
+            desc    : '广州南方学院图书馆',
+            minFov  : 30,
+            base    : `./assets/img/lowQualityImg/tushuguan_LOW.png`,
+            position: { longitude: 0, latitude: 0, zoom: 50, },
+            config  : {
+                width  : 8192,
+                cols   : 32,
+                rows   : 16,
+                tileUrl: (col, row) => {
+                    const num = row*32+col
+                    return `./assets/img/library/title_${('000' + num).slice(-4)}.jpg`;
+                },
+            },
         }
     ];
 
@@ -99,18 +114,28 @@
                 markers: [{
                     // image marker that opens the panel when clicked
                     id: 'xiti',
-                    longitude: 1.8359686983102599,
-                    latitude:-0.17584042916955767,
+                    longitude: 1.8659846301431282,
+                    latitude:-0.2775064583786597,
                     image: './assets/img/marker/pin-blue-small.png',
                     width: 32,
                     height: 32,
                     anchor: 'center center',
                     tooltip: '前往西区体育馆<b>Click me!</b>',
+                },{
+                    // image marker that opens the panel when clicked
+                    id: 'tushuguan',
+                    longitude: 0.8635927013958947,
+                    latitude:-0.2663033502758694,
+                    image: './assets/img/marker/pin-blue-small.png',
+                    width: 32,
+                    height: 32,
+                    anchor: 'center center',
+                    tooltip: '前往图书馆<b>Click me!</b>',
                 }]}
             ]],
         loadingImg: 'assets/photosphere-logo.gif',
         navbar    : [
-            'autorotate', 'zoom',
+            'autorotate', 'zoom','markersList',
             {
                 id:buttonId,
                 title:'creatorInfo',
@@ -134,15 +159,90 @@
     loadPanorama(panos[0]);
     viewer.on('click', (e, data) => {
         console.log(`${data.rightclick ? 'right clicked' : 'clicked'} at longitude: ${data.longitude} latitude: ${data.latitude}`);
+        console.log(data)
     });
     var markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+
     markersPlugin.on('select-marker', function(e, marker, data) {
         console.log("marker",marker.id)
         if(marker.id === "xiti"){
             markersPlugin.clearMarkers();
             loadPanorama(panos[1])
+            markersPlugin.addMarker({
+                id:'tongxiang',
+                longitude: 0.3747125116228323,
+                latitude: -0.33944257694863467,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往铜像<b>Click me!</b>',
+            })
+            markersPlugin.addMarker({
+                // image marker that opens the panel when clicked
+                id: 'tushuguan',
+                longitude: 1.697045923849067,
+                latitude:-0.319516570833676,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往图书馆<b>Click me!</b>',
+            })
+        }
+        if(marker.id==="tongxiang"){
+            markersPlugin.clearMarkers();
+            loadPanorama(panos[0])
+            markersPlugin.addMarker({
+                // image marker that opens the panel when clicked
+                id: 'xiti',
+                longitude: 1.8659846301431282,
+                latitude:-0.2775064583786597,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往西区体育馆<b>Click me!</b>',
+            })
+            markersPlugin.addMarker({
+                // image marker that opens the panel when clicked
+                id: 'tushuguan',
+                longitude: 0.8635927013958947,
+                latitude:-0.2663033502758694,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往图书馆<b>Click me!</b>',
+            })
+        }
+        if(marker.id==="tushuguan"){
+            markersPlugin.clearMarkers();
+            loadPanorama(panos[2])
+            markersPlugin.addMarker({
+                id:'tongxiang',
+                longitude:3.1396543195616706,
+                latitude:-0.27331680917177126,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往铜像<b>Click me!</b>',
+            })
+            markersPlugin.addMarker({
+                // image marker that opens the panel when clicked
+                id: 'xiti',
+                longitude: 2.3167984116143896,
+                latitude:-0.22144021050798157,
+                image: './assets/img/marker/pin-blue-small.png',
+                width: 32,
+                height: 32,
+                anchor: 'center center',
+                tooltip: '前往西区体育馆<b>Click me!</b>',
+            })
         }
     });
+
     viewer.on('open-panel', function(e, id) {
         if (id === panelId) {
             viewer.navbar.getButton(buttonId).toggleActive(true);

@@ -7,6 +7,8 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/assets/img/bronzeStatue" />
       <excludeFolder url="file://$MODULE_DIR$/assets/img/lowQualityImg" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/img/xiti" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/img/library" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
