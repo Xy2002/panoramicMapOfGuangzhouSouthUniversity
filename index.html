@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoSphereViewer - equirectangular tiles demo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.3.0-rc.1/dist/photo-sphere-viewer.css">
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #photosphere {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="photosphere"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.3/dist/polyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.3.0-rc.1/dist/photo-sphere-viewer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.3.0-rc.1/dist/adapters/equirectangular-tiles.js"></script>
+<script src="./assets/js/gyroscope.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
+
+<script>
+    var panos = [
+        {
+            desc    : '广州南方学院铜像处',
+            minFov  : 30,
+            base    : `./assets/img/lowQualityImg/DJI_0131_low.JPG`,
+            position: { longitude: 0, latitude: 0, zoom: 50, },
+            config  : {
+                width  : 8192,
+                cols   : 32,
+                rows   : 16,
+                tileUrl: (col, row) => {
+                    const num = row*32+col
+                    return `./assets/img/bronzeStatue/title_${('000' + num).slice(-4)}.jpg`;
+                },
+            },
+        },
+        {
+            desc    : '广州南方学院西区体育馆',
+            minFov  : 30,
+            base    : `./assets/img/lowQualityImg/xiti_LOW.JPG`,
+            position: { longitude: 0, latitude: 0, zoom: 50 },
+            config  : {
+                width  : 8192,
+                cols   : 32,
+                rows   : 16,
+                tileUrl: (col, row) => {
+                    const num = row*32+col
+                    return `./assets/img/xiti/tile_${('000' + num).slice(-4)}.jpg`;
+                },
+            },
+        }
+    ];
+
+    var viewer = new PhotoSphereViewer.Viewer({
+        container : 'photosphere',
+        adapter   : [PhotoSphereViewer.EquirectangularTilesAdapter, {
+            showErrorTile: true,
+        }],
+        plugins: [
+            PhotoSphereViewer.GyroscopePlugin,
+            [PhotoSphereViewer.MarkersPlugin, {
+                // list of markers
+                markers: [{
+                    // image marker that opens the panel when clicked
+                    id: 'xiti',
+                    longitude: 1.8359686983102599,
+                    latitude:-0.17584042916955767,
+                    image: './assets/img/marker/pin-blue-small.png',
+                    width: 32,
+                    height: 32,
+                    anchor: 'center center',
+                    tooltip: '前往西区体育馆<b>Click me!</b>',
+                }]}
+            ]],
+        loadingImg: 'assets/photosphere-logo.gif',
+        navbar    : [
+            'autorotate', 'zoom',
+            {
+                id       : 'custom',
+                title    : 'Change image',
+                className: 'custom-button',
+                content  : '🔄',
+                onClick  : (function () {
+                    var i = 0;
+
+                    return function () {
+                        i = 1 - i;
+                        loadPanorama(panos[i]);
+                    };
+                }()),
+            },
+            'caption', 'gyroscope', 'fullscreen',
+        ],
+    });
+
+    loadPanorama(panos[0]);
+    viewer.on('click', (e, data) => {
+        console.log(`${data.rightclick ? 'right clicked' : 'clicked'} at longitude: ${data.longitude} latitude: ${data.latitude}`);
+    });
+    var markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
+    markersPlugin.on('select-marker', function(e, marker, data) {
+        console.log("marker",marker.id)
+        if(marker.id === "xiti"){
+            markersPlugin.clearMarkers();
+            loadPanorama(panos[1])
+        }
+    });
+    // wash out the base image
+    // for demonstration purpose only
+    function loadPanorama(pano) {
+        const loader = new THREE.ImageLoader();
+
+        viewer.loader.show();
+
+        return new Promise((resolve, reject) => loader.load(pano.base, resolve, undefined, reject))
+            .then(image => {
+                const canvas = document.createElement('canvas');
+                canvas.width = image.width;
+                canvas.height = image.height;
+
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(image, 0, 0);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                return canvas.toDataURL('image/png');
+            })
+            .then(baseUrl => {
+                return viewer.setPanorama({
+                    ...pano.config,
+                    baseUrl: baseUrl,
+                }, pano.position);
+            })
+            .then(() => {
+                viewer.navbar.setCaption(pano.desc);
+                viewer.setOption('minFov', pano.minFov);
+            });
+    }
+</script>
+</body>
+</html>
