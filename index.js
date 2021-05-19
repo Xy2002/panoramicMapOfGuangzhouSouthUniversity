@@ -7,6 +7,7 @@ var panelId = 'custom-panel';
 * [3] 西饭
 * [4] 中饭
 * [5] 东区宿舍楼楼1
+* [6] 东体
 * */
 var panos = [
     {
@@ -98,6 +99,21 @@ var panos = [
                 return `https://vr.naiquoy.com/getPic/eastDormitoryBuilding1/tile_${('000' + num).slice(-4)}.jpg`;
             },
         },
+    },
+    {
+        desc: '广州南方学院东区体育馆',
+        minFov: 30,
+        base: `./assets/img/lowQualityImg/eastSideStadium_LOW.jpg`,
+        position: {longitude: 0, latitude: 0, zoom: 50,},
+        config: {
+            width: 8192,
+            cols: 32,
+            rows: 16,
+            tileUrl: (col, row) => {
+                const num = row * 32 + col
+                return `https://vr.naiquoy.com/getPic/eastSideStadium/tile_${('000' + num).slice(-4)}.jpg`;
+            },
+        },
     }
 ];
 
@@ -123,6 +139,26 @@ var viewer = new PhotoSphereViewer.Viewer({
                     tooltip: '前往西区体育馆<b>Click me!</b>',
                 },
                 {
+                    // html marker with custom style
+                    id: 'xititext',
+                    longitude: 2.019400971777133,
+                    latitude: -0.27274771448740975,
+                    html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
+                    anchor: 'top right',
+                    scale: [0.5, 1.5],
+                    style: {
+                        maxWidth: '150px',
+                        color: 'white',
+                        fontSize: '25px',
+                        fontFamily: 'Helvetica, sans-serif',
+                        textAlign: 'center'
+                    },
+                    tooltip: {
+                        content: '点击蓝色指针即可前往目标地点喔',
+                        position: 'right'
+                    }
+                },
+                {
                     // image marker that opens the panel when clicked
                     id: 'tushuguan',
                     longitude: 0.8635927013958947,
@@ -134,6 +170,26 @@ var viewer = new PhotoSphereViewer.Viewer({
                     tooltip: '前往图书馆<b>Click me!</b>',
                 },
                 {
+                    // html marker with custom style
+                    id: 'tushuguantext',
+                    longitude: 0.8625475820058015,
+                    latitude: -0.1782135895051684,
+                    html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
+                    anchor: 'top right',
+                    scale: [0.5, 1.5],
+                    style: {
+                        maxWidth: '150px',
+                        color: 'white',
+                        fontSize: '25px',
+                        fontFamily: 'Helvetica, sans-serif',
+                        textAlign: 'center'
+                    },
+                    tooltip: {
+                        content: '点击蓝色指针即可前往目标地点喔',
+                        position: 'right'
+                    }
+                },
+                {
                     "id": 'zhongfan',
                     "longitude": 0.02724286979213421,
                     "latitude": -0.22426911181874232,
@@ -142,11 +198,63 @@ var viewer = new PhotoSphereViewer.Viewer({
                     "height": 32,
                     "anchor": "center center",
                     "tooltip": "前往中区饭堂<b>Click me!</b>"
+                },
+                {
+                    // html marker with custom style
+                    id: 'zhongfantext',
+                    longitude: 0.013898513536756536,
+                    latitude: -0.2681217868268466,
+                    html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
+                    anchor: 'top right',
+                    scale: [0.5, 1.5],
+                    style: {
+                        maxWidth: '150px',
+                        color: 'white',
+                        fontSize: '25px',
+                        fontFamily: 'Helvetica, sans-serif',
+                        textAlign: 'center'
+                    },
+                    tooltip: {
+                        content: '点击蓝色指针即可前往目标地点喔',
+                        position: 'right'
+                    }
+                },
+                {
+                    // html marker with custom style
+                    id: 'yinyueloutext',
+                    longitude: 6.046750519791013,
+                    latitude: -0.21773894555094953,
+                    html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
+                    anchor: 'top right',
+                    scale: [0.5, 1.5],
+                    style: {
+                        maxWidth: '150px',
+                        color: 'white',
+                        fontSize: '25px',
+                        fontFamily: 'Helvetica, sans-serif',
+                        textAlign: 'center'
+                    }
+                },
+                {
+                    // 文字提示
+                    id: '0.12383957000365942',
+                    longitude:  0.8274117307967339,
+                    latitude:  -1.186811816852619,
+                    html: '广州南方学院<br/> <b>孙中山铜像</b> &hearts;',
+                    anchor: 'top right',
+                    scale: [0.5, 1.5],
+                    style: {
+                        maxWidth: '150px',
+                        color: 'white',
+                        fontSize: '25px',
+                        fontFamily: 'Helvetica, sans-serif',
+                        textAlign: 'center'
+                    }
                 }
             ]
         }
         ]],
-    loadingImg: 'assets/photosphere-logo.gif',
+    loadingTxt: '广州南方学院 Loading...',
     navbar: [
         'autorotate', 'zoom', 'markersList',
         {
@@ -182,6 +290,37 @@ viewer.on('click', (e, data) => {
     obj.anchor = 'center center'
     obj.tooltip = '前往<b>Click me!</b>'
     console.log(JSON.stringify(obj))
+    console.log(`markersPlugin.addMarker({
+            // 文字提示
+            id: '${Math.random()}',
+            longitude:  ${data.longitude},
+            latitude:  ${data.latitude},
+            html: '广州南方学院<br/> <b>xxx</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })`)
+    console.log(`        markersPlugin.addMarker({
+            //标点
+            id: "${Math.random()}",
+            longitude: ${data.longitude},
+            "latitude": ${data.latitude},
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往xxx<b>Click me!</b>"
+        }) `)
 });
 var markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 
@@ -301,6 +440,88 @@ markersPlugin.on('select-marker', function (e, marker, data) {
             "anchor": "center center",
             "tooltip": "前往东区宿舍楼1<b>Click me!</b>"
         })
+        markersPlugin.addMarker({
+            // html marker with custom style
+            id: 'zhongqufantangtext',
+            longitude: 6.11399091898845,
+            latitude: -0.730535516904804,
+            html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            }
+        })
+        markersPlugin.addMarker({
+            "id": "tushuguan",
+            "longitude": 3.1767803887322135,
+            "latitude": -0.4553499897440467,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往图书馆<b>Click me!</b>"
+        })
+        markersPlugin.addMarker({
+            // html marker with custom style
+            id: 'tushuguantext1',
+            longitude: 2.990911555659451,
+            latitude: -0.33517660338801636,
+            html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // html marker with custom style
+            id: 'tongxiangtext1',
+            longitude:  4.529441044358981,
+            latitude:  -0.16490220210510254,
+            html: '广州南方学院<br/> <b>铜像</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // html marker with custom style
+            id: '0.4929396715283245',
+            longitude:  5.881352741108866,
+            latitude:  -0.43627498448179525,
+            html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            }
+        })
     }
     if (marker.id === "dongqusushelou1") {
         markersPlugin.clearMarkers()
@@ -324,6 +545,20 @@ markersPlugin.on('select-marker', function (e, marker, data) {
             "height": 32,
             "anchor": "center center",
             "tooltip": "前往东体<b>Click me!</b>"
+        })
+    }
+    if (marker.id === "dongti") {
+        markersPlugin.clearMarkers()
+        loadPanorama(panos[6])
+        markersPlugin.addMarker({
+            "id": "dongqusushelou1",
+            "longitude": 2.9186540654624005,
+            "latitude": -0.20568139338841873,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往东区宿舍楼<b>Click me!</b>"
         })
     }
 });
