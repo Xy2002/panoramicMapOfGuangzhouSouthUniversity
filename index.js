@@ -19,237 +19,157 @@ var panelId = 'custom-panel';
 * */
 var panos = [
     {
-        desc: '广州南方学院铜像处',
+        desc: "广州南方学院铜像处",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/铜像_LOW.JPG`,
-        position: {longitude: 0.8648759940158011, latitude: -0.05638018625704766, zoom: 50,},
+        base: "./assets/img/lowQualityImg/铜像_LOW.JPG",
+        position: {longitude: .8648759940158011, latitude: -.05638018625704766, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/bronzeStatue/title_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院西区体育馆',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/bronzeStatue_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区体育馆",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西体_LOW.JPG`,
-        position: {longitude: 1.8939487733283173, latitude: 0.03337838088394118, zoom: 50},
+        base: "./assets/img/lowQualityImg/西体_LOW.JPG",
+        position: {longitude: 1.8939487733283173, latitude: .03337838088394118, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westSideStadium/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院图书馆',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westSideStadium_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院图书馆",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/图书馆_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/图书馆_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/library/title_${('000' + num).slice(-4)}.JPG`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院西区饭堂',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/library_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区饭堂",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西饭_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/西饭_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westernDiningHall/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院中区饭堂',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westernDiningHall_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院中区饭堂",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/中饭_LOW.JPG`,
-        position: {longitude: 1.7197076366246475, latitude: 0.04838709051927359, zoom: 50,},
+        base: "./assets/img/lowQualityImg/中饭_LOW.JPG",
+        position: {longitude: 1.7197076366246475, latitude: .04838709051927359, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/centralCanteen/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院东区宿舍楼(医务室附近视角)',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/centralCanteen_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院东区宿舍楼(医务室附近视角)",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/东区宿舍楼1_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/东区宿舍楼1_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/eastDormitoryBuilding1/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc: '广州南方学院东区体育馆',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/eastDormitoryBuilding1_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院东区体育馆",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/东体_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/东体_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/eastSideStadium/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc:'广州南方学院湖边',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/eastSideStadium_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院湖边",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/湖边_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/湖边_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/Lakeside/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院东区宿舍楼(东32附近视角)',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/Lakeside_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院东区宿舍楼(东32附近视角)",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/东区宿舍楼2_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/东区宿舍楼2_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/eastDormitoryBuilding2/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院西区教学楼(图书馆旁楼梯)',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/eastDormitoryBuilding2_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区教学楼(图书馆旁楼梯)",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西区教学楼_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/西区教学楼_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westCampusBuilding/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院西区教学楼(2教旁边)',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westCampusBuilding_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区教学楼(2教旁边)",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西区教学楼2_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/西区教学楼2_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westCampusBuilding2/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院西区宿舍楼',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westCampusBuilding2_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区宿舍楼",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西区宿舍楼_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/西区宿舍楼_LOW.JPG",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westDormitoryBuilding/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院西区操场',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westDormitoryBuilding_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院西区操场",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/西操_LOW.JPG`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/西操_LOW.JPG",
+        position: {longitude: 3.6384973666430844, latitude: 0.01577493788707196, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/westPlayground/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-
-    },
-    {
-        desc:'广州南方学院东区操场',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/westPlayground_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院东区操场",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/东操正上方_LOW.JPG`,
-        position: {longitude: 3.592985535053417, latitude: 0.006586340407279234, zoom: 50,},
+        base: "./assets/img/lowQualityImg/东操正上方_LOW.JPG",
+        position: {longitude: 3.592985535053417, latitude: .006586340407279234, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/eastPlayground/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
-    },
-    {
-        desc:'广州南方学院小花园',
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/eastPlayground_LOW/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
+    }, {
+        desc: "广州南方学院小花园",
         minFov: 30,
-        base: `./assets/img/lowQualityImg/小花园_LOW.jpg`,
-        position: {longitude: 0, latitude: 0, zoom: 50,},
+        base: "./assets/img/lowQualityImg/小花园_LOW.jpg",
+        position: {longitude: 0, latitude: 0, zoom: 50},
         config: {
-            width: 8192,
-            cols: 32,
-            rows: 16,
-            tileUrl: (col, row) => {
-                const num = row * 32 + col
-                return `https://vr.naiquoy.com/getPic/garden/tile_${('000' + num).slice(-4)}.jpg`;
-            },
-        },
+            width: 8192, cols: 32, rows: 16, tileUrl: (t, e) => {
+                return `https://www.naiquoy.com/getPic/garden_compress/tile_${("000" + (32 * e + t)).slice(-4)}.jpg`
+            }
+        }
     }
-];
+]
 
 
 var viewer = new PhotoSphereViewer.Viewer({
@@ -307,7 +227,7 @@ var viewer = new PhotoSphereViewer.Viewer({
                 {
                     // html marker with custom style
                     id: 'tushuguantext',
-                    longitude:  0.9906850819157272,
+                    longitude: 0.9906850819157272,
                     latitude: -0.204374871302216,
                     html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
                     anchor: 'top right',
@@ -373,8 +293,8 @@ var viewer = new PhotoSphereViewer.Viewer({
                 {
                     // 文字提示
                     id: '0.12383957000365942',
-                    longitude:  0.8274117307967339,
-                    latitude:  -1.186811816852619,
+                    longitude: 0.8274117307967339,
+                    latitude: -1.186811816852619,
                     html: '广州南方学院<br/> <b>孙中山铜像</b> &hearts;',
                     anchor: 'top right',
                     scale: [0.5, 1.5],
@@ -525,8 +445,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.013445086922671878',
-            longitude:  3.33725890790875,
-            latitude:  -0.16231608583385482,
+            longitude: 3.33725890790875,
+            latitude: -0.16231608583385482,
             html: '广州南方学院<br/> <b>西区宿舍楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -545,8 +465,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4823498693342816',
-            longitude:  4.6010423045506466,
-            latitude:  -0.35590329837225076,
+            longitude: 4.6010423045506466,
+            latitude: -0.35590329837225076,
             html: '广州南方学院<br/> <b>西区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -565,8 +485,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4837745116128285',
-            longitude:  5.409542630194491,
-            latitude:  -0.7552786709360313,
+            longitude: 5.409542630194491,
+            latitude: -0.7552786709360313,
             html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -585,8 +505,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7010810805641747',
-            longitude:  0.21848125547287273,
-            latitude:  -0.3214100172237164,
+            longitude: 0.21848125547287273,
+            latitude: -0.3214100172237164,
             html: '广州南方学院<br/> <b>孙中山铜像</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -605,8 +525,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.010818173562644473',
-            longitude:  1.8433328469086971,
-            latitude:  -0.29440726675516915,
+            longitude: 1.8433328469086971,
+            latitude: -0.29440726675516915,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -625,8 +545,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.12129652680634884',
-            longitude:  3.7284649201142015,
-            latitude:  -0.37528738640931625,
+            longitude: 3.7284649201142015,
+            latitude: -0.37528738640931625,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -645,8 +565,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.9885461789207863',
-            longitude:  2.392146244405965,
-            latitude:  -0.33164218617179064,
+            longitude: 2.392146244405965,
+            latitude: -0.33164218617179064,
             html: '广州南方学院<br/> <b>西区教学楼及实验楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -782,8 +702,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.12383957000365942',
-            longitude:  0.8274117307967339,
-            latitude:  -1.186811816852619,
+            longitude: 0.8274117307967339,
+            latitude: -1.186811816852619,
             html: '广州南方学院<br/> <b>孙中山铜像</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -910,8 +830,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: 'tushuguantext123',
-            longitude:  6.26248690247201,
-            latitude:  -0.6527029418825707,
+            longitude: 6.26248690247201,
+            latitude: -0.6527029418825707,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -926,8 +846,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: 'zongheloutext',
-            longitude:  0.005877256095977216,
-            latitude:  -0.21884949046072943,
+            longitude: 0.005877256095977216,
+            latitude: -0.21884949046072943,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -942,8 +862,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: 'hubniantext',
-            longitude:  0.4723374142198251,
-            latitude:  -0.1859974704508689,
+            longitude: 0.4723374142198251,
+            latitude: -0.1859974704508689,
             html: '广州南方学院<br/> <b>南方湖</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -962,8 +882,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.38539950330183936',
-            longitude:  5.900800131951956,
-            latitude:  -0.226084645007123,
+            longitude: 5.900800131951956,
+            latitude: -0.226084645007123,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -982,8 +902,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.8013611023393556',
-            longitude:  5.36171775001335,
-            latitude:  -0.1944992381191799,
+            longitude: 5.36171775001335,
+            latitude: -0.1944992381191799,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1002,8 +922,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5593487095594354',
-            longitude:  5.17159929233687,
-            latitude:  -0.12309509843993505,
+            longitude: 5.17159929233687,
+            latitude: -0.12309509843993505,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1022,8 +942,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.17401490451648827',
-            longitude:  2.423979393923545,
-            latitude:  -0.22235325104419812,
+            longitude: 2.423979393923545,
+            latitude: -0.22235325104419812,
             html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1042,8 +962,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.3414081128109272',
-            longitude:  1.88363297013912,
-            latitude:  -0.17900777252997346,
+            longitude: 1.88363297013912,
+            latitude: -0.17900777252997346,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1062,8 +982,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5807979447813452',
-            longitude:  3.1327863200716712,
-            latitude:  -0.169470088467923,
+            longitude: 3.1327863200716712,
+            latitude: -0.169470088467923,
             html: '广州南方学院<br/> <b>铜像</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1082,8 +1002,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.9085565918009184',
-            longitude:  4.139939772403578,
-            latitude:  -0.14623491935999078,
+            longitude: 4.139939772403578,
+            latitude: -0.14623491935999078,
             html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1102,8 +1022,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5019073253186379',
-            longitude:  4.382298674125094,
-            latitude:  -0.28583140189311784,
+            longitude: 4.382298674125094,
+            latitude: -0.28583140189311784,
             html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1118,8 +1038,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.8118623945711874',
-            longitude:  0.9550410366729588,
-            latitude:  -0.25915383180657914,
+            longitude: 0.9550410366729588,
+            latitude: -0.25915383180657914,
             html: '广州南方学院<br/> <b>西区教学楼以及实验楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1138,8 +1058,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6420515830699842',
-            longitude:  1.236296489206091,
-            latitude:  -0.14637333153551024,
+            longitude: 1.236296489206091,
+            latitude: -0.14637333153551024,
             html: '广州南方学院<br/> <b>西区宿舍楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1220,8 +1140,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.22182924621842504',
-            longitude:  0.43584829294020627,
-            latitude:  -0.1505681055493917,
+            longitude: 0.43584829294020627,
+            latitude: -0.1505681055493917,
             html: '广州南方学院<br/> <b>东区宿舍楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1276,8 +1196,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.653122687437466',
-            longitude:  4.552878073006282,
-            latitude:  -0.13851749767183463,
+            longitude: 4.552878073006282,
+            latitude: -0.13851749767183463,
             html: '广州南方学院<br/> <b>铜像</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1296,8 +1216,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // html marker with custom style
             id: '0.4929396715283245',
-            longitude:  5.881352741108866,
-            latitude:  -0.43627498448179525,
+            longitude: 5.881352741108866,
+            latitude: -0.43627498448179525,
             html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1312,8 +1232,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.667588140559837',
-            longitude:  1.2184333346974017,
-            latitude:  -0.13197456847052624,
+            longitude: 1.2184333346974017,
+            latitude: -0.13197456847052624,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1332,8 +1252,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5561538043319929',
-            longitude:  1.577467168754951,
-            latitude:  -0.18589862057072626,
+            longitude: 1.577467168754951,
+            latitude: -0.18589862057072626,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1352,8 +1272,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4074119260795299',
-            longitude:  1.844452245003183,
-            latitude:  -0.16356927725481518,
+            longitude: 1.844452245003183,
+            latitude: -0.16356927725481518,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1426,8 +1346,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.3685731561205885',
-            longitude:  0.9461335294731112,
-            latitude:  -0.09611058000397898,
+            longitude: 0.9461335294731112,
+            latitude: -0.09611058000397898,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1446,8 +1366,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.29785139605340927',
-            longitude:  1.3318188509294813,
-            latitude:  -0.18472106759705698,
+            longitude: 1.3318188509294813,
+            latitude: -0.18472106759705698,
             html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1466,8 +1386,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.702050885643692',
-            longitude:  1.6445163739005513,
-            latitude:  -0.14572362844158882,
+            longitude: 1.6445163739005513,
+            latitude: -0.14572362844158882,
             html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1486,8 +1406,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.24294654645901104',
-            longitude:  0.3530984912935666,
-            latitude:  -0.2041455393350593,
+            longitude: 0.3530984912935666,
+            latitude: -0.2041455393350593,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1506,8 +1426,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.14048176596773487',
-            longitude:  6.196058208891956,
-            latitude:  -0.24844689048326574,
+            longitude: 6.196058208891956,
+            latitude: -0.24844689048326574,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1526,8 +1446,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4179393890255034',
-            longitude:  1.4110061644833243,
-            latitude:  -0.24295835613892502,
+            longitude: 1.4110061644833243,
+            latitude: -0.24295835613892502,
             html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1548,7 +1468,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 西区教学楼1
     *
     * */
-    if(marker.id === "xiqujiaoxuelou1"){
+    if (marker.id === "xiqujiaoxuelou1") {
         markersPlugin.clearMarkers()
         loadPanorama(panos[9])
         markersPlugin.addMarker({
@@ -1654,8 +1574,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.9417605351193885',
-            longitude:  0.16046450388755604,
-            latitude:  -0.18497652168882595,
+            longitude: 0.16046450388755604,
+            latitude: -0.18497652168882595,
             html: '广州南方学院<br/> <b>西区宿舍楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1674,8 +1594,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7973761242540522',
-            longitude:  5.753506807795203,
-            latitude:  -0.27203392792200276,
+            longitude: 5.753506807795203,
+            latitude: -0.27203392792200276,
             html: '广州南方学院<br/> <b>小花园</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1694,8 +1614,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4986848147659073',
-            longitude:  5.332353714688335,
-            latitude:  -0.21350228659408987,
+            longitude: 5.332353714688335,
+            latitude: -0.21350228659408987,
             html: '广州南方学院<br/> <b>南方湖</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1714,8 +1634,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7357776758961883',
-            longitude:  4.486785790467411,
-            latitude:  -0.16026633220572983,
+            longitude: 4.486785790467411,
+            latitude: -0.16026633220572983,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1734,8 +1654,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6560697031954219',
-            longitude:  4.948130875854857,
-            latitude:  -0.07048468735637003,
+            longitude: 4.948130875854857,
+            latitude: -0.07048468735637003,
             html: '广州南方学院<br/> <b>新综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1754,8 +1674,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7998509878544486',
-            longitude:  3.9468336022644945,
-            latitude:  -0.14934312550889772,
+            longitude: 3.9468336022644945,
+            latitude: -0.14934312550889772,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1774,8 +1694,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.10392569519713968',
-            longitude:  3.505507227619573,
-            latitude:  -0.430191726135162,
+            longitude: 3.505507227619573,
+            latitude: -0.430191726135162,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1794,8 +1714,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.897794892466556',
-            longitude:  1.6477855585003824,
-            latitude:  -0.1625589601148456,
+            longitude: 1.6477855585003824,
+            latitude: -0.1625589601148456,
             html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1814,8 +1734,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.9601129712073058',
-            longitude:  1.358327712932235,
-            latitude:  -0.15645260187250654,
+            longitude: 1.358327712932235,
+            latitude: -0.15645260187250654,
             html: '广州南方学院<br/> <b>西区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1834,8 +1754,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.45847929568819',
-            longitude:  0.44004056242241235,
-            latitude:  -0.48468800232125275,
+            longitude: 0.44004056242241235,
+            latitude: -0.48468800232125275,
             html: '广州南方学院<br/> <b>②教学楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1854,8 +1774,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4433087300180558',
-            longitude:  1.0226873477868221,
-            latitude:  -0.2404419973626979,
+            longitude: 1.0226873477868221,
+            latitude: -0.2404419973626979,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1877,7 +1797,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 东区宿舍楼(东32)
     * 已完成
     * */
-    if(marker.id === "dongqusushelou2"){
+    if (marker.id === "dongqusushelou2") {
         markersPlugin.clearMarkers()
         loadPanorama(panos[8])
         markersPlugin.addMarker({
@@ -1929,8 +1849,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.12119563877619566',
-            longitude:  1.9097928160180715,
-            latitude:  -0.34321830858396907,
+            longitude: 1.9097928160180715,
+            latitude: -0.34321830858396907,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1949,8 +1869,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.03767466155955668',
-            longitude:  0.5827317564282642,
-            latitude:  -0.12230602729296791,
+            longitude: 0.5827317564282642,
+            latitude: -0.12230602729296791,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1969,8 +1889,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.47306668537950225',
-            longitude:  0.4556133091112494,
-            latitude:  -0.28930896228108405,
+            longitude: 0.4556133091112494,
+            latitude: -0.28930896228108405,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -1989,8 +1909,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.8396299134067962',
-            longitude:  1.2014606481269838,
-            latitude:  -0.27404917266015816,
+            longitude: 1.2014606481269838,
+            latitude: -0.27404917266015816,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2011,7 +1931,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 东操
     * 已完成
     * */
-    if(marker.id === "dongcao"){
+    if (marker.id === "dongcao") {
         markersPlugin.clearMarkers()
         loadPanorama(panos[13])
         markersPlugin.addMarker({
@@ -2063,8 +1983,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.40854401723588896',
-            longitude:  2.3552018743624825,
-            latitude:  -0.2494243338775448,
+            longitude: 2.3552018743624825,
+            latitude: -0.2494243338775448,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2083,8 +2003,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.12031722045704618',
-            longitude:  4.3293105739914175,
-            latitude:  -0.31606353660049047,
+            longitude: 4.3293105739914175,
+            latitude: -0.31606353660049047,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2103,8 +2023,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.9716491806498315',
-            longitude:  4.666509722223248,
-            latitude:  -0.10927297527303637,
+            longitude: 4.666509722223248,
+            latitude: -0.10927297527303637,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2123,8 +2043,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.24360442444979769',
-            longitude:  1.7662228292380995,
-            latitude:  -0.22342211398119605,
+            longitude: 1.7662228292380995,
+            latitude: -0.22342211398119605,
             html: '广州南方学院<br/> <b>新综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2143,8 +2063,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.33793520289606316',
-            longitude:  2.9771234338422254,
-            latitude:  -0.23149877376233108,
+            longitude: 2.9771234338422254,
+            latitude: -0.23149877376233108,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2237,8 +2157,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.23219223613995732',
-            longitude:  2.189662601100713,
-            latitude:  -0.14068789622449596,
+            longitude: 2.189662601100713,
+            latitude: -0.14068789622449596,
             html: '广州南方学院<br/> <b>音乐楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2257,8 +2177,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.2911917638764032',
-            longitude:  1.9685519083799328,
-            latitude:  -0.21321084442396376,
+            longitude: 1.9685519083799328,
+            latitude: -0.21321084442396376,
             html: '广州南方学院<br/> <b>中区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2277,8 +2197,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.8109676235580952',
-            longitude:  1.0753864742900339,
-            latitude:  -0.14586709522295127,
+            longitude: 1.0753864742900339,
+            latitude: -0.14586709522295127,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2297,8 +2217,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6785822329254176',
-            longitude:  0.4292500557792467,
-            latitude:  -0.046842546476366875,
+            longitude: 0.4292500557792467,
+            latitude: -0.046842546476366875,
             html: '广州南方学院<br/> <b>综合楼&新综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2317,8 +2237,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.2869195374698781',
-            longitude:  6.183388633583108,
-            latitude:  -0.3699926606549393,
+            longitude: 6.183388633583108,
+            latitude: -0.3699926606549393,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2337,8 +2257,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6891890678772621',
-            longitude:  0.2926168079663232,
-            latitude:  -0.797190861629137,
+            longitude: 0.2926168079663232,
+            latitude: -0.797190861629137,
             html: '广州南方学院<br/> <b>东区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2357,8 +2277,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7116027238339799',
-            longitude:  4.423893778701013,
-            latitude:  -0.5559343140105115,
+            longitude: 4.423893778701013,
+            latitude: -0.5559343140105115,
             html: '广州南方学院<br/> <b>东区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2379,7 +2299,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 湖边
     * 完成
     * */
-    if(marker.id === "hubian"){
+    if (marker.id === "hubian") {
         markersPlugin.clearMarkers();
         loadPanorama(panos[7])
         markersPlugin.addMarker({
@@ -2430,8 +2350,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.871442187972959',
-            longitude:  0.09648120428609447,
-            latitude:  -0.2681113277590723,
+            longitude: 0.09648120428609447,
+            latitude: -0.2681113277590723,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2450,8 +2370,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.997456861671911',
-            longitude:  5.237703043742778,
-            latitude:  -0.14525075004413512,
+            longitude: 5.237703043742778,
+            latitude: -0.14525075004413512,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2470,8 +2390,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.846445014492563',
-            longitude:  1.3936325695036789,
-            latitude:  -0.2758113762161438,
+            longitude: 1.3936325695036789,
+            latitude: -0.2758113762161438,
             html: '广州南方学院<br/> <b>东区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2490,8 +2410,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: 'nanfanghutext2',
-            longitude:  3.2587237343271642,
-            latitude:  -0.61765302027906,
+            longitude: 3.2587237343271642,
+            latitude: -0.61765302027906,
             html: '广州南方学院<br/> <b>南方湖</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2506,8 +2426,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: 'xinzong',
-            longitude:  2.600409261123123,
-            latitude:  -0.4816118096606061,
+            longitude: 2.600409261123123,
+            latitude: -0.4816118096606061,
             html: '广州南方学院<br/> <b>新综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2522,8 +2442,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7081581767040157',
-            longitude:  1.192925109861377,
-            latitude:  -0.38164222008821325,
+            longitude: 1.192925109861377,
+            latitude: -0.38164222008821325,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2542,8 +2462,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.863247180690587',
-            longitude:  5.000478620292659,
-            latitude:  -0.5916440174427384,
+            longitude: 5.000478620292659,
+            latitude: -0.5916440174427384,
             html: '广州南方学院<br/> <b>西区实验楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2564,7 +2484,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 小花园
     * 完成
     * */
-    if(marker.id === "xiaohuayuan"){
+    if (marker.id === "xiaohuayuan") {
         markersPlugin.clearMarkers()
         loadPanorama(panos[14])
         markersPlugin.addMarker({
@@ -2593,8 +2513,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.11068217256689317',
-            longitude:  2.5098276146559972,
-            latitude:  -0.26900756073132515,
+            longitude: 2.5098276146559972,
+            latitude: -0.26900756073132515,
             html: '广州南方学院<br/> <b>西区</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2613,8 +2533,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.18230743579287556',
-            longitude:  4.521376299519249,
-            latitude:  -0.21670127358254998,
+            longitude: 4.521376299519249,
+            latitude: -0.21670127358254998,
             html: '广州南方学院<br/> <b>新综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2633,8 +2553,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.4230186458604086',
-            longitude:  4.067110228713142,
-            latitude:  -0.19733159392330046,
+            longitude: 4.067110228713142,
+            latitude: -0.19733159392330046,
             html: '广州南方学院<br/> <b>综合楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2653,8 +2573,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.3526189021956041',
-            longitude:  5.9937098240534405,
-            latitude:  -0.6951022169043775,
+            longitude: 5.9937098240534405,
+            latitude: -0.6951022169043775,
             html: '广州南方学院<br/> <b>教师公寓</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2673,8 +2593,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.20159156426249036',
-            longitude:  3.5315230320307713,
-            latitude:  -0.17204657273683654,
+            longitude: 3.5315230320307713,
+            latitude: -0.17204657273683654,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2695,7 +2615,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 西区宿舍楼
     * 已完成
     * */
-    if(marker.id==="xiqusushelou"){
+    if (marker.id === "xiqusushelou") {
         markersPlugin.clearMarkers()
         loadPanorama(panos[11])
         markersPlugin.addMarker({
@@ -2757,8 +2677,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.41477965536475225',
-            longitude:  4.940552339143132,
-            latitude:  -0.14086312989335292,
+            longitude: 4.940552339143132,
+            latitude: -0.14086312989335292,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2777,8 +2697,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5004523656143325',
-            longitude:  4.578639472203154,
-            latitude:  -0.33552248844666654,
+            longitude: 4.578639472203154,
+            latitude: -0.33552248844666654,
             html: '广州南方学院<br/> <b>②教学楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2797,8 +2717,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6898106641639914',
-            longitude:  3.6858123126198636,
-            latitude:  -0.0535739867801146,
+            longitude: 3.6858123126198636,
+            latitude: -0.0535739867801146,
             html: '广州南方学院<br/> <b>西区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2817,8 +2737,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7094887542340511',
-            longitude:  3.921492645280742,
-            latitude:  -0.2192241052377113,
+            longitude: 3.921492645280742,
+            latitude: -0.2192241052377113,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2837,8 +2757,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.828308929476191',
-            longitude:  5.665670509134239,
-            latitude:  -0.39430173740266805,
+            longitude: 5.665670509134239,
+            latitude: -0.39430173740266805,
             html: '广州南方学院<br/> <b>小花园</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2859,7 +2779,7 @@ markersPlugin.on('select-marker', function (e, marker, data) {
     * 西区教学楼2
     * 已完成
     * */
-    if(marker.id==="xiqujiaoxuelou2"){
+    if (marker.id === "xiqujiaoxuelou2") {
         markersPlugin.clearMarkers();
         loadPanorama(panos[10])
 
@@ -2922,8 +2842,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.7488245290692683',
-            longitude:  1.5145177536334973,
-            latitude:  -0.3093918325989331,
+            longitude: 1.5145177536334973,
+            latitude: -0.3093918325989331,
             html: '广州南方学院<br/> <b>小花园</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2942,8 +2862,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.035142676247962745',
-            longitude:  4.505617914987124,
-            latitude:  -0.23475898483085245,
+            longitude: 4.505617914987124,
+            latitude: -0.23475898483085245,
             html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2962,8 +2882,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.5857917017719307',
-            longitude:  4.4352370681473605,
-            latitude:  -0.12646698848893134,
+            longitude: 4.4352370681473605,
+            latitude: -0.12646698848893134,
             html: '广州南方学院<br/> <b>西区操场</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -2982,8 +2902,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.6879711493749221',
-            longitude:  2.36314788813473,
-            latitude:  -0.17485358843664867,
+            longitude: 2.36314788813473,
+            latitude: -0.17485358843664867,
             html: '广州南方学院<br/> <b>西区宿舍楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -3002,8 +2922,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.0732527314367899',
-            longitude:  4.946859791808812,
-            latitude:  -0.12168618603713455,
+            longitude: 4.946859791808812,
+            latitude: -0.12168618603713455,
             html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -3022,8 +2942,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.29163287661816883',
-            longitude:  6.160668225246748,
-            latitude:  -0.11446257536889037,
+            longitude: 6.160668225246748,
+            latitude: -0.11446257536889037,
             html: '广州南方学院<br/> <b>图书馆</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -3042,8 +2962,8 @@ markersPlugin.on('select-marker', function (e, marker, data) {
         markersPlugin.addMarker({
             // 文字提示
             id: '0.19439700205909616',
-            longitude:  5.9330238746569215,
-            latitude:  -0.7651119850462464,
+            longitude: 5.9330238746569215,
+            latitude: -0.7651119850462464,
             html: '广州南方学院<br/> <b>②教学楼</b> &hearts;',
             anchor: 'top right',
             scale: [0.5, 1.5],
@@ -3062,7 +2982,159 @@ markersPlugin.on('select-marker', function (e, marker, data) {
 
 
     }
+    /*
+    * 西操
+    * xicao
+    * */
+    if(marker.id==="xicao"){
+        markersPlugin.clearMarkers();
+        loadPanorama(panos[12])
+        markersPlugin.addMarker({
+            //标点
+            id: "xiqujiaoxuelou2",
+            longitude: 3.8051747100286923,
+            "latitude": -0.27542413211195593,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往西区<b>Click me!</b>"
+        })
+        markersPlugin.addMarker({
+            //标点
+            id: "tongxiang",
+            longitude: 2.3573079434329722,
+            "latitude": -0.19803357683648648,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往xxx<b>Click me!</b>"
+        })
+        markersPlugin.addMarker({
+            //标点
+            id: "xiti",
+            longitude: 2.7598046995062724,
+            "latitude": -0.31973232796306883,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往西区体育馆<b>Click me!</b>"
+        })
+        markersPlugin.addMarker({
+            //标点
+            id: "xiqusushelou",
+            longitude: 4.222729793345154,
+            "latitude": -0.21158642450286602,
+            "image": "./assets/img/marker/pin-blue-small.png",
+            "width": 32,
+            "height": 32,
+            "anchor": "center center",
+            "tooltip": "前往西区宿舍楼<b>Click me!</b>"
+        })
 
+        markersPlugin.addMarker({
+            // 文字提示
+            id: '0.8545248190487709',
+            longitude:  3.6159068735460247,
+            latitude:  -0.12663289555381274,
+            html: '广州南方学院<br/> <b>西区教学楼</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // 文字提示
+            id: '0.8961103962078958',
+            longitude:  4.267422809489899,
+            latitude:  0.00478476863177657,
+            html: '广州南方学院<br/> <b>西区宿舍楼</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // 文字提示
+            id: '0.14465253468029893',
+            longitude:  2.476679832229548,
+            latitude:  -0.3655913000218418,
+            html: '广州南方学院<br/> <b>西区体育馆</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // 文字提示
+            id: '0.2763158140101023',
+            longitude:  3.677226951816791,
+            latitude:  -0.3775820070616014,
+            html: '广州南方学院<br/> <b>西区饭堂</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+        markersPlugin.addMarker({
+            // 文字提示
+            id: '0.7796139057741727',
+            longitude:  3.3886289322048917,
+            latitude:  -0.9558048334150708,
+            html: '广州南方学院<br/> <b>西区操场</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
+        })
+    }
 });
 
 viewer.on('open-panel', function (e, id) {
