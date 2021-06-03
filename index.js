@@ -380,6 +380,16 @@ viewer.on('click', (e, data) => {
 var markersPlugin = viewer.getPlugin(PhotoSphereViewer.MarkersPlugin);
 
 markersPlugin.on('select-marker', function (e, marker, data) {
+    if (marker.id === "video"){
+        var video = document.querySelector("#video")
+        let clientWidth = document.documentElement.clientWidth;
+        if(clientWidth>1024){
+            video.innerHTML= '<iframe height="576" width="1024" src="https://marshall-1301067880.cos.ap-guangzhou.myqcloud.com/video/video80M.mp4?q-sign-algorithm=sha1&q-ak=AKID6hVFnC0HxWpz5uBlpc8OQAdqgGbfryX3&q-sign-time=1622483278;27542483278&q-key-time=1622483278;27542483278&q-header-list=&q-url-param-list=&q-signature=d4514e34bac2a4f9e6ea211a1a462bc784bf555e"></iframe>'
+        }else {
+            let videoHeight = ((clientWidth-4)*9/16).toFixed()-4
+            video.innerHTML= `<iframe height="${videoHeight}" width="${clientWidth-4}" src="https://marshall-1301067880.cos.ap-guangzhou.myqcloud.com/video/video80M.mp4?q-sign-algorithm=sha1&q-ak=AKID6hVFnC0HxWpz5uBlpc8OQAdqgGbfryX3&q-sign-time=1622483278;27542483278&q-key-time=1622483278;27542483278&q-header-list=&q-url-param-list=&q-signature=d4514e34bac2a4f9e6ea211a1a462bc784bf555e"></iframe>`
+        }
+    }
     /*
     * 西体
     * 已完成
@@ -2837,6 +2847,26 @@ markersPlugin.on('select-marker', function (e, marker, data) {
             "height": 32,
             "anchor": "center center",
             "tooltip": "前往小花园<b>Click me!</b>"
+        })
+        markersPlugin.addMarker({
+            // 文字提示
+            id: 'video',
+            longitude:  0.10109928937330641,
+            latitude:  -0.4201388185675936,
+            html: '点击这里<br/> <b>观看宣传视频</b> &hearts;',
+            anchor: 'top right',
+            scale: [0.5, 1.5],
+            style: {
+                maxWidth: '150px',
+                color: 'white',
+                fontSize: '25px',
+                fontFamily: 'Helvetica, sans-serif',
+                textAlign: 'center'
+            },
+            tooltip: {
+                content: '点击蓝色指针即可前往目标地点喔',
+                position: 'right'
+            }
         })
 
         markersPlugin.addMarker({
